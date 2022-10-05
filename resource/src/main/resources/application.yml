@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+song:
+  storage:
+    bucket: localstackstorage
+    localstack: http://localhost:4566
+
+spring:
+  application:
+    name: resource
+  datasource:
+    username: 'postgres'
+    url: jdbc:postgresql://localhost:2345/resource
+    password: 'postgres'
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2MB
+      max-file-size: 10MB
+      max-request-size: 10MB
